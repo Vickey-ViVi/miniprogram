@@ -1,0 +1,134 @@
+.result-page {
+  padding-bottom: 200rpx;
+}
+
+.result-header {
+  background: linear-gradient(135deg, #1e2a3a 0%, #2d4a6e 100%);
+  margin: -32rpx -32rpx 32rpx;
+  padding: 48rpx 32rpx;
+  color: #ffffff;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  background: rgba(201, 169, 110, 0.3);
+  border-radius: 16rpx;
+  font-size: 22rpx;
+  color: #e8d5a8;
+  margin-bottom: 16rpx;
+}
+
+.result-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.result-count {
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+
+.shop-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 24rpx rgba(30, 42, 58, 0.08);
+}
+
+.shop-rank {
+  width: 56rpx;
+  height: 56rpx;
+  background: #c9a96e;
+  color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.shop-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1e2a3a;
+  margin-bottom: 12rpx;
+}
+
+.shop-detail {
+  margin-bottom: 12rpx;
+}
+
+.detail-item {
+  font-size: 24rpx;
+  color: #888888;
+  margin-right: 24rpx;
+}
+
+.shop-tags {
+  margin-bottom: 12rpx;
+}
+
+.shop-activity {
+  font-size: 26rpx;
+  color: #e74c3c;
+  margin-bottom: 8rpx;
+}
+
+.shop-reason {
+  font-size: 24rpx;
+  color: #666666;
+  background: #f5f7fa;
+  padding: 12rpx 16rpx;
+  border-radius: 8rpx;
+  line-height: 1.5;
+  margin-top: 8rpx;
+}
+
+.reason-label {
+  display: block;
+  font-size: 22rpx;
+  color: #c9a96e;
+  font-weight: 600;
+  margin-bottom: 6rpx;
+}
+
+.reason-text {
+  display: block;
+  color: #555555;
+}
+
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24rpx 32rpx 48rpx;
+  background: #ffffff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+
+.route-btn {
+  width: 100%;
+  margin-bottom: 16rpx;
+}
+
+.btn-secondary {
+  width: 100%;
+  background: #f5f7fa;
+  color: #333333;
+  border: none;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  height: 80rpx;
+}
+
+.retry-btn {
+  width: 60%;
+  margin-top: 32rpx;
+}

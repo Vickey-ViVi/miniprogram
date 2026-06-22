@@ -1,0 +1,49 @@
+<view class="container proposal-page">
+  <view class="page-header">
+    <view class="page-title">🛍️ 店铺入驻提议</view>
+    <view class="page-subtitle">投票支持您希望入驻万象城的品牌，助力数据驱动招商</view>
+  </view>
+
+  <view class="card input-card">
+    <view class="card-label">输入品牌名称</view>
+    <view class="input-row">
+      <input
+        class="brand-input"
+        bindinput="onBrandInput"
+        placeholder="例如：优衣库、星巴克..."
+        value="{{brand}}"
+        confirm-type="next"
+      />
+      <button class="submit-mini-btn" bindtap="submitProposal">提议</button>
+    </view>
+    <view class="card-label reason-label">推荐理由</view>
+    <textarea
+      class="reason-textarea"
+      bindinput="onReasonInput"
+      placeholder="请说明您希望该品牌入驻的理由，如：品类稀缺、客群匹配、个人偏好等"
+      value="{{reason}}"
+      maxlength="200"
+    ></textarea>
+    <view class="char-count">{{reason.length}}/200</view>
+    <view class="card-hint">若品牌已被提议，系统将询问您是否点赞支持</view>
+  </view>
+
+  <view class="card">
+    <view class="card-label">🔥 热门提议榜</view>
+    <view wx:if="{{loading}}" class="loading-text">加载中...</view>
+    <view wx:elif="{{hotBrands.length === 0}}" class="empty-state">
+      <view class="empty-icon">📊</view>
+      <view>暂无热门提议，来做第一个吧</view>
+    </view>
+    <view wx:else class="brand-list">
+      <view class="brand-item" wx:for="{{hotBrands}}" wx:key="brand">
+        <view class="brand-rank">{{index + 1}}</view>
+        <view class="brand-info">
+          <view class="brand-name">{{item.brand}}</view>
+          <view class="brand-count">{{item.count}} 人提议</view>
+        </view>
+        <button class="like-btn" size="mini" bindtap="likeBrand" data-brand="{{item.brand}}">👍 支持</button>
+      </view>
+    </view>
+  </view>
+</view>

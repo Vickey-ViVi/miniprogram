@@ -1,0 +1,31 @@
+<!-- 聊天容器 -->
+<view class="chat-container">
+  <scroll-view scroll-y="true" class="message-list" scroll-into-view="{{scrollToView}}" scroll-with-animation>
+    <block wx:for="{{messages}}" wx:key="index">
+      <view class="message-item {{item.role === 'user' ? 'user' : 'bot'}}">
+        <view class="bubble">{{item.content}}</view>
+      </view>
+    </block>
+    <view id="bottom"></view>
+  </scroll-view>
+
+  <view class="options-area" wx:if="{{showOptions}}">
+    <view class="options-title">{{currentQuestion.text}}</view>
+    <view class="options-buttons">
+      <button wx:for="{{currentQuestion.options}}" wx:key="*this" class="option-btn" bindtap="selectOption" data-value="{{item}}">{{item}}</button>
+    </view>
+  </view>
+
+  <view class="toolbar" wx:if="{{step > 0 || chatMode}}">
+    <button class="reset-type-btn" bindtap="resetQuestionType">↩ 重新选择提问类型</button>
+  </view>
+
+  <view class="input-area" wx:if="{{showInput}}">
+    <input class="input-box" placeholder="请输入您的需求..." bindconfirm="onInputConfirm" model:value="{{inputValue}}" />
+    <button class="send-btn" bindtap="sendInput">发送</button>
+  </view>
+
+  <view class="recommend-bar" wx:if="{{chatMode}}">
+    <button class="recommend-btn" bindtap="getRecommendations">✨ 获取店铺推荐</button>
+  </view>
+</view>

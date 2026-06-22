@@ -1,0 +1,64 @@
+<view class="member-page">
+  <view class="profile-header">
+    <view class="avatar">👤</view>
+    <view class="profile-info">
+      <view class="profile-name">万象顾客</view>
+      <view class="profile-desc">MIXC Smart Concierge</view>
+    </view>
+  </view>
+
+  <view class="quick-menu">
+    <view class="menu-item" bindtap="goChat">
+      <text class="menu-icon">💬</text>
+      <text class="menu-text">智能提问</text>
+    </view>
+    <view class="menu-item" bindtap="goRoute">
+      <text class="menu-icon">🗺️</text>
+      <text class="menu-text">路线规划</text>
+    </view>
+    <view class="menu-item" bindtap="goComplaint">
+      <text class="menu-icon">📢</text>
+      <text class="menu-text">投诉求助</text>
+    </view>
+    <view class="menu-item" bindtap="goProposal">
+      <text class="menu-icon">🛍️</text>
+      <text class="menu-text">入驻提议</text>
+    </view>
+  </view>
+
+  <view class="history-section">
+    <view class="history-tabs">
+      <view class="history-tab {{activeTab === 'recommend' ? 'active' : ''}}" bindtap="switchTab" data-tab="recommend">推荐记录</view>
+      <view class="history-tab {{activeTab === 'complaint' ? 'active' : ''}}" bindtap="switchTab" data-tab="complaint">工单记录</view>
+    </view>
+
+    <view wx:if="{{activeTab === 'recommend'}}">
+      <view wx:if="{{recommendHistory.length === 0}}" class="empty-state">
+        <view class="empty-icon">📋</view>
+        <view>暂无推荐记录</view>
+      </view>
+      <view class="history-card" wx:for="{{recommendHistory}}" wx:key="time">
+        <view class="history-time">{{item.timeStr}}</view>
+        <view class="history-content">{{item.shops || '智能推荐'}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'complaint'}}">
+      <view wx:if="{{complaintHistory.length === 0}}" class="empty-state">
+        <view class="empty-icon">📋</view>
+        <view>暂无工单记录</view>
+      </view>
+      <view class="history-card" wx:for="{{complaintHistory}}" wx:key="time">
+        <view class="history-time">{{item.timeStr}}</view>
+        <view class="history-type">{{item.type}}</view>
+        <view class="history-content">工单号：{{item.ticketNo}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="about-title">关于万象智慧助手</view>
+    <view class="about-text">AI 推荐 · 服务闭环 · 数据驱动招商</view>
+    <view class="about-version">Version 1.0.0</view>
+  </view>
+</view>

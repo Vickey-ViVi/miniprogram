@@ -1,0 +1,108 @@
+.proposal-page {
+  padding-bottom: 60rpx;
+}
+
+.input-row {
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.brand-input {
+  flex: 1;
+  padding: 20rpx 24rpx;
+  background: #f5f7fa;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}
+
+.submit-mini-btn {
+  background: #c9a96e;
+  color: #ffffff;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  padding: 0 32rpx;
+  height: 80rpx;
+  margin: 0;
+}
+
+.card-hint {
+  margin-top: 16rpx;
+}
+
+.reason-label {
+  margin-top: 24rpx;
+}
+
+.reason-textarea {
+  width: 100%;
+  min-height: 160rpx;
+  padding: 20rpx 24rpx;
+  background: #f5f7fa;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 22rpx;
+  color: #999999;
+  margin-top: 8rpx;
+}
+
+.loading-text {
+  text-align: center;
+  color: #888888;
+  padding: 40rpx;
+}
+
+.brand-list {
+  margin-top: 8rpx;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.brand-item:last-child {
+  border-bottom: none;
+}
+
+.brand-rank {
+  width: 48rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #c9a96e;
+  text-align: center;
+  margin-right: 16rpx;
+}
+
+.brand-info {
+  flex: 1;
+}
+
+.brand-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.brand-count {
+  font-size: 24rpx;
+  color: #888888;
+  margin-top: 4rpx;
+}
+
+.like-btn {
+  background: #f5efe3;
+  color: #8a7344;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  margin: 0;
+}

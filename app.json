@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chat/chat",
+    "pages/recommend-result/recommend-result",
+    "pages/route-plan/route-plan",
+    "pages/complaint/complaint",
+    "pages/proposal/proposal",
+    "pages/member/member"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1e2a3a",
+    "navigationBarTitleText": "万象智慧助手",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7fa"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#c9a96e",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

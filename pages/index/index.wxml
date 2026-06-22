@@ -1,0 +1,38 @@
+<view class="home-page">
+  <view class="hero">
+    <view class="hero-badge">MIXC Smart Concierge</view>
+    <view class="hero-title">万象智慧助手</view>
+    <view class="hero-subtitle">AI 导购 · 服务闭环 · 智慧逛店</view>
+  </view>
+
+  <view class="feature-list">
+    <view class="feature-card smart" bindtap="goToSmartAsk">
+      <view class="feature-icon">💬</view>
+      <view class="feature-body">
+        <view class="feature-name">智能提问</view>
+        <view class="feature-desc">吃什么 · 玩什么 · 购物 · 路线</view>
+      </view>
+      <view class="feature-arrow">›</view>
+    </view>
+
+    <view class="feature-card complaint" bindtap="goToComplaint">
+      <view class="feature-icon">📢</view>
+      <view class="feature-body">
+        <view class="feature-name">投诉与求助</view>
+        <view class="feature-desc">空调问题 · 卫生问题 · 失物招领</view>
+      </view>
+      <view class="feature-arrow">›</view>
+    </view>
+
+    <view class="feature-card propose" bindtap="goToProposal">
+      <view class="feature-icon">🛍️</view>
+      <view class="feature-body">
+        <view class="feature-name">店铺入驻提议</view>
+        <view class="feature-desc">投票支持您希望入驻的品牌</view>
+      </view>
+      <view class="feature-arrow">›</view>
+    </view>
+  </view>
+
+  <view class="footer-tip">万象城 · 让每一次到访都更智慧</view>
+</view>

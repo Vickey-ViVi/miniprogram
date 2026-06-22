@@ -1,0 +1,126 @@
+/**app.wxss - MIXC Smart Concierge 全局样式**/
+
+page {
+  --color-primary: #1e2a3a;
+  --color-accent: #c9a96e;
+  --color-accent-light: #f5efe3;
+  --color-success: #07c160;
+  --color-bg: #f5f7fa;
+  --color-card: #ffffff;
+  --color-text: #333333;
+  --color-text-secondary: #888888;
+  --color-border: #eeeeee;
+  --radius-lg: 24rpx;
+  --radius-md: 16rpx;
+  --shadow-card: 0 4rpx 24rpx rgba(30, 42, 58, 0.08);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.page-header {
+  margin-bottom: 32rpx;
+}
+
+.page-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8rpx;
+}
+
+.page-subtitle {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: var(--shadow-card);
+}
+
+.card-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 20rpx;
+}
+
+.card-hint {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 16rpx;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2d4a6e 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  height: 88rpx;
+  margin-top: 16rpx;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #b8924a 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 48rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  height: 88rpx;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  background: var(--color-accent-light);
+  color: #8a7344;
+  font-size: 22rpx;
+  border-radius: 8rpx;
+  margin-right: 8rpx;
+  margin-bottom: 8rpx;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80rpx 40rpx;
+  color: var(--color-text-secondary);
+}
+
+.empty-state .empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 全局按钮文字居中 */
+button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+  line-height: normal !important;
+}
+
+button::after {
+  border: none;
+}

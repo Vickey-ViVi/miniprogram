@@ -1,0 +1,64 @@
+<view class="container complaint-page">
+  <view class="page-header">
+    <view class="page-title">📢 投诉与求助</view>
+    <view class="page-subtitle">您的反馈将帮助我们提升服务品质</view>
+  </view>
+
+  <view class="card">
+    <view class="card-label">请选择类型</view>
+    <radio-group class="type-group" bindchange="onTypeChange">
+      <label class="type-item {{type === 'ac' ? 'active' : ''}}">
+        <radio value="ac" color="#c9a96e" /> ❄️ 空调问题
+      </label>
+      <label class="type-item {{type === 'clean' ? 'active' : ''}}">
+        <radio value="clean" color="#c9a96e" /> 🧹 卫生问题
+      </label>
+      <label class="type-item {{type === 'lost' ? 'active' : ''}}">
+        <radio value="lost" color="#c9a96e" /> 🔍 失物招领
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="card guide-card" wx:if="{{lostGuide}}">
+    <view class="guide-title">📝 请描述以下信息</view>
+    <view class="guide-list">
+      <view>· 遗失物品名称及特征</view>
+      <view>· 遗失时间</view>
+      <view>· 大致地点</view>
+      <view>· 联系方式</view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{showPhoto}}">
+    <view class="card-label">上传照片（可选，最多 3 张）</view>
+    <view class="photo-grid">
+      <view class="photo-item" wx:for="{{images}}" wx:key="index">
+        <image src="{{item}}" mode="aspectFill" class="photo-img" />
+        <view class="photo-remove" bindtap="removeImage" data-index="{{index}}">×</view>
+      </view>
+      <view class="photo-add" wx:if="{{images.length < 3}}" bindtap="chooseImage">
+        <text class="add-icon">+</text>
+        <text class="add-text">添加照片</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-label">详细描述</view>
+    <textarea
+      class="desc-textarea"
+      bindinput="onDescInput"
+      placeholder="{{lostGuide ? '请描述遗失物品、时间、大致地点...' : '请描述具体问题...'}}"
+      maxlength="500"
+      value="{{description}}"
+    ></textarea>
+    <view class="char-count">{{description.length}}/500</view>
+  </view>
+
+  <view class="card" wx:if="{{lostGuide}}">
+    <view class="card-label">联系电话</view>
+    <input class="phone-input" type="number" maxlength="11" placeholder="请输入手机号" bindinput="onPhoneInput" value="{{phone}}" />
+  </view>
+
+  <button class="btn-primary submit-btn" bindtap="submitComplaint">提交工单</button>
+</view>

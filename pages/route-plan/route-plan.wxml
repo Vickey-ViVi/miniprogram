@@ -1,0 +1,100 @@
+<view class="container route-page">
+  <view class="page-header">
+    <view class="page-title">🗺️ 逛店路线规划</view>
+    <view class="page-subtitle">选择店铺或描述路线，AI 将结合商场地图为您规划</view>
+  </view>
+
+  <view class="mode-tabs">
+    <view class="mode-tab {{mode === 'select' ? 'active' : ''}}" bindtap="switchMode" data-mode="select">勾选店铺</view>
+    <view class="mode-tab {{mode === 'natural' ? 'active' : ''}}" bindtap="switchMode" data-mode="natural">描述路线</view>
+  </view>
+
+  <view wx:if="{{mode === 'select'}}">
+    <view class="card" wx:if="{{loading}}">
+      <view class="loading-text">正在加载店铺列表...</view>
+    </view>
+    <view class="card" wx:elif="{{allShops.length === 0}}">
+      <view class="empty-state">
+        <view class="empty-icon">🏪</view>
+        <view>暂无店铺数据，请确认后端服务已启动</view>
+      </view>
+    </view>
+    <view class="card" wx:else>
+      <view class="card-label">选择目的地（至少 2 个）</view>
+      <view class="card-hint">已选 {{selectedShops.length}} 个</view>
+      <view class="shop-select-list">
+        <view
+          wx:for="{{allShops}}"
+          wx:key="id"
+          class="shop-select-item {{item.selected ? 'selected' : ''}}"
+          bindtap="toggleSelect"
+          data-shop="{{item}}"
+        >
+          <view class="checkbox">
+            <text wx:if="{{item.selected}}" class="check-icon">✓</text>
+          </view>
+          <view class="shop-info">
+            <view class="shop-name">{{item.name}}</view>
+            <view class="shop-meta">{{item.floor || '—'}} · ¥{{item.avgPrice || '—'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{mode === 'natural'}}">
+    <view class="card">
+      <view class="card-label">描述您的逛店计划</view>
+      <view class="card-hint">例如：我想从星巴克到海底捞再到优衣库</view>
+      <textarea
+        class="natural-textarea"
+        placeholder="请输入您想去的店铺或路线..."
+        bindinput="onNaturalInput"
+        value="{{naturalInput}}"
+        maxlength="200"
+      ></textarea>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-label">路线偏好</view>
+    <view class="setting-row">
+      <text class="setting-label">总时长限制</text>
+      <text class="setting-value">{{timeLimit}} 分钟</text>
+    </view>
+    <slider min="30" max="240" step="30" value="{{timeLimit}}" activeColor="#c9a96e" block-size="20" bindchange="onTimeChange" />
+    <view class="setting-row switch-row">
+      <text class="setting-label">🍼 携带婴儿车</text>
+      <switch checked="{{hasStroller}}" color="#c9a96e" bindchange="onStrollerChange" />
+    </view>
+    <view class="setting-row switch-row">
+      <text class="setting-label">♿ 使用轮椅</text>
+      <switch checked="{{hasWheelchair}}" color="#c9a96e" bindchange="onWheelchairChange" />
+    </view>
+  </view>
+
+  <button class="btn-accent generate-btn" bindtap="generateRoute">开始规划路线</button>
+
+  <view class="card result-card" wx:if="{{routeResult}}">
+    <view class="card-label">✨ 推荐路线</view>
+    <view class="route-summary" wx:if="{{routeResult.summary}}">{{routeResult.summary}}</view>
+    <view class="route-reason" wx:if="{{routeResult.reason}}">
+      <text class="reason-label">规划理由</text>
+      <text class="reason-text">{{routeResult.reason}}</text>
+    </view>
+    <view class="route-meta" wx:if="{{routeResult.estimatedMinutes}}">预计总时长：约 {{routeResult.estimatedMinutes}} 分钟</view>
+    <view class="route-steps" wx:if="{{routeResult.steps && routeResult.steps.length}}">
+      <view class="route-step" wx:for="{{routeResult.steps}}" wx:key="index">
+        <view class="step-num">{{index + 1}}</view>
+        <view class="step-body">
+          <view class="step-name">{{item.shopName || item.name}}</view>
+          <view class="step-detail">{{item.floor || ''}}{{item.duration ? ' · 约' + item.duration + '分钟' : ''}}</view>
+          <view class="step-tip" wx:if="{{item.reason || item.tip}}">💡 {{item.reason || item.tip}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="route-text" wx:elif="{{routeResult.path || routeResult.description}}">
+      {{routeResult.path || routeResult.description}}
+    </view>
+  </view>
+</view>

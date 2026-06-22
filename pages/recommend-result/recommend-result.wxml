@@ -1,0 +1,39 @@
+<view class="container result-page">
+  <view class="result-header">
+    <view class="result-badge">AI 为您精选</view>
+    <view class="result-title">{{typeLabel}}推荐</view>
+    <view class="result-count">共 {{recommendations.length}} 家店铺</view>
+  </view>
+
+  <view wx:if="{{recommendations.length === 0}}" class="empty-state">
+    <view class="empty-icon">🔍</view>
+    <view>暂无推荐结果</view>
+    <button class="btn-primary retry-btn" bindtap="goChat">重新提问</button>
+  </view>
+
+  <block wx:else>
+    <view class="shop-card" wx:for="{{recommendations}}" wx:key="index">
+      <view class="shop-rank">{{index + 1}}</view>
+      <view class="shop-content">
+        <view class="shop-name">{{item.name}}</view>
+        <view class="shop-detail">
+          <text class="detail-item">📍 {{item.floor || '—'}}</text>
+          <text class="detail-item">💰 ¥{{item.avgPrice || '—'}}</text>
+        </view>
+        <view class="shop-tags" wx:if="{{item.tags}}">
+          <text class="tag" wx:for="{{item.tagList}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+        </view>
+        <view class="shop-activity" wx:if="{{item.activity}}">🎉 {{item.activity}}</view>
+        <view class="shop-reason" wx:if="{{item.reason}}">
+          <text class="reason-label">推荐理由</text>
+          <text class="reason-text">{{item.reason}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-bar">
+      <button class="btn-accent route-btn" bindtap="planRoute">🗺️ 规划逛店路线</button>
+      <button class="btn-secondary" bindtap="goChat">💬 继续提问</button>
+    </view>
+  </block>
+</view>
